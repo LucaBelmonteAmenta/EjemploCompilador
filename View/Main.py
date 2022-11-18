@@ -17,7 +17,7 @@ from Tabla import TableFrame
 
 class AnalizadorLexicoUI():
 
-   def __init__(self, tabla_simbolos):
+   def __init__(self):
       
       self.ventana_principal = Tk()
       self.ventana_principal.title("Analizador Lexico")
@@ -98,18 +98,24 @@ class AnalizadorLexicoUI():
       contador_lineas = 0
       self.text_salida.txt.delete("1.0","end")
 
-      print(self.direccion_archivo )
+       
 
-      #file = open(direccion_nuevo_archivo, 'w')
-      #file.write(self.codigo_entrada)
-      #file.close()
+      analisis_lineas = []
 
       for linea in self.codigo_entrada:
 
          contador_lineas += 1
          analisis_linea = Lexico().analizarLinea(linea, contador_lineas)
          print(analisis_linea)
+         analisis_lineas.append(str(analisis_linea))
          self.text_salida.txt.insert(END, str(analisis_linea).strip())
+
+      direccion_nuevo_archivo = path(False, "\Salida.txt")
+      file = open(direccion_nuevo_archivo, 'w')
+      file.writelines(analisis_lineas)
+      file.close()
+      
+      
 
 
 
