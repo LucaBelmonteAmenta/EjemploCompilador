@@ -121,4 +121,4 @@ class AnalizadorLexicoUI():
 
 
 if __name__ == "__main__":
-   AnalizadorLexicoUI([]).run()
+   AnalizadorLexicoUI().run()
