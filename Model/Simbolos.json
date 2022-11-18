@@ -115,13 +115,13 @@
         "palabra reservada": "True"
     },
     {
-        "lexema": "&",
-        "token": "&",
+        "lexema": "&&",
+        "token": "&&",
         "palabra reservada": "True"
     },
     {
-        "lexema": "&&",
-        "token": "&&",
+        "lexema": "&",
+        "token": "&",
         "palabra reservada": "True"
     },
     {
@@ -130,13 +130,18 @@
         "palabra reservada": "True"
     },
     {
-        "lexema": "|",
-        "token": "|",
+        "lexema": "'",
+        "token": "'",
         "palabra reservada": "True"
     },
     {
         "lexema": "||",
         "token": "||",
+        "palabra reservada": "True"
+    },
+    {
+        "lexema": "|",
+        "token": "|",
         "palabra reservada": "True"
     }
 ]
