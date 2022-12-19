@@ -20,6 +20,11 @@
         "palabra reservada": "True"
     },
     {
+        "lexema": "string",
+        "token": "str",
+        "palabra reservada": "True"
+    },
+    {
         "lexema": "leer",
         "token": "leer",
         "palabra reservada": "True"
@@ -127,6 +132,11 @@
     {
         "lexema": "''",
         "token": "''",
+        "palabra reservada": "True"
+    },
+    {
+        "lexema": "\"",
+        "token": "\"",
         "palabra reservada": "True"
     },
     {

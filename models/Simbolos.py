@@ -8,10 +8,10 @@ class Simbolo():
         self.palabraReservada = palabraReservada
 
     def __str__(self):
-        return f"Simbolo: Lexema = {self.lexema}     Token = {self.token}     Palabra Reservada = {self.palabraReservada}"
+        return f"Simbolo: Lexema = {self.lexema}     Token = {self.token}     Palabra Reservada = {self.palabraReservada} /n"
 
     def diccionario(self):
-        diccionario = {"Token" : self.token, "Lexema" : self.lexema, "Es Palabra una Reservada" : self.palabraReservada}
+        diccionario = {"token" : self.token, "lexema" : self.lexema, "palabra reservada" : self.palabraReservada}
         return diccionario
 
 if __name__ == "__main__":
