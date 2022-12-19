@@ -1,4 +1,2 @@
-[{'Numero de Linea': 0, 'Linea': 'int x;', 'Tokens': "['int', 'id', ';']"}, 
- {'Numero de Linea': 1, 'Linea': 'si', 'Tokens': "['si']"}, 
- {'Numero de Linea': 2, 'Linea': 'x = x - a;', 'Tokens': "['id', '=', 'id', '-', 'id', ';']"}, 
- {'Numero de Linea': 3, 'Linea': '', 'Tokens': '[]'}]
+[{'Numero de Linea': 0, 'Linea': 'x=x+x+x+x;', 'Tokens': "['id', '=', 'id', '+', 'id', '+', 'id', '+', 'id', ';']"}, 
+ {'Numero de Linea': 1, 'Linea': '', 'Tokens': '[]'}]

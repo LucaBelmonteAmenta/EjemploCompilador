@@ -47,9 +47,15 @@ class HomeController(Controller):
                     simbolos.append(simbolo)
                     nuevosLexemas.append(simbolo["lexema"])
 
-        FileAccess().CreateNewFile("Fichero de Tabla de Símbolos", str(simbolos).replace("},", "}, \n"))
+        resultParse = str(simbolos)
+        resultParse.replace("},", "}, \n")
+        resultParse.replace("[{", "[{ \n")
+        resultParse.replace("[{", "[{ \n")
+        resultParse.replace("[{", "[{ \n")
 
-        return salida["Parse"]
+        FileAccess().CreateNewFile("Fichero de Tabla de Símbolos", resultParse)
+
+        return salida["arbol"]
     
     """
         @Override

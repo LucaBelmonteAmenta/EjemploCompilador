@@ -101,7 +101,8 @@ class FileAccess():
                 reglaUnitaria = {
                                 "izquierda" : componentes[0],  
                                 "derecha" : componentes[1], 
-                                "indice" : contador
+                                "indice" : contador,
+                                "full" : regla
                                 }
 
                 response.append(reglaUnitaria)

@@ -1,1 +1,9 @@
-['(S (Z id = (OP id (O -) (OP id))) ;)', '(S )']
+[[{'izquierda': 'S', 'derecha': "Y ';' | Z ';' | ", 'indice': 1, 'full': "S -> Y ';' | Z ';' | "}, 
+ {'izquierda': 'Z', 'derecha': "'id' '=' OP", 'indice': 3, 'full': "Z -> 'id' '=' OP"}, 
+ {'izquierda': 'OP', 'derecha': "'id' O OP | 'id'", 'indice': 4, 'full': "OP -> 'id' O OP | 'id'"}, 
+ {'izquierda': 'O', 'derecha': "'+' | '-' | '*' | '/'", 'indice': 5, 'full': "O -> '+' | '-' | '*' | '/'"}, 
+ {'izquierda': 'OP', 'derecha': "'id' O OP | 'id'", 'indice': 4, 'full': "OP -> 'id' O OP | 'id'"}, 
+ {'izquierda': 'O', 'derecha': "'+' | '-' | '*' | '/'", 'indice': 5, 'full': "O -> '+' | '-' | '*' | '/'"}, 
+ {'izquierda': 'OP', 'derecha': "'id' O OP | 'id'", 'indice': 4, 'full': "OP -> 'id' O OP | 'id'"}, 
+ {'izquierda': 'O', 'derecha': "'+' | '-' | '*' | '/'", 'indice': 5, 'full': "O -> '+' | '-' | '*' | '/'"}, 
+ {'izquierda': 'OP', 'derecha': "'id' O OP | 'id'", 'indice': 4, 'full': "OP -> 'id' O OP | 'id'"}], [{'izquierda': 'S', 'derecha': "Y ';' | Z ';' | ", 'indice': 1, 'full': "S -> Y ';' | Z ';' | "}]]

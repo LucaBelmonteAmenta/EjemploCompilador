@@ -62,49 +62,51 @@ class Sintaxis():
 
     def adaptTreeStyle(self, arbol):
 
-        reglasAplicadas = [0]
+        reglasAplicadas = []
         
         for hoja in arbol:
             if ("(" in hoja) and (hoja[1:] in self.NoTerminales):              
                 for regla in self.ListaReglasDeProduccion:                   
                     if (regla["izquierda"] == hoja[1:]):
-                        reglasAplicadas.append(regla["indice"]) 
+                        reglasAplicadas.append(regla) 
 
         evolucionArbol = []
 
         for indice, regla in enumerate(reglasAplicadas):
-
+            
             iteracionArbol = ""
-            contadorReglasEncontradas = 0
+            contadorNoTerminalesEncontrados = 0
             nivel = 0
             wantedRuleFlag = False
 
             for hoja in arbol:
 
-                reglasAplicadas = indice + 1
+                reglasEjecutadas = indice + 1
 
                 if ("(" in hoja):
                     nivel = nivel + 1
-                elif (")" in hoja):    
+                elif (hoja == ")"):    
                     nivel = nivel - 1
 
                 if ("(" in hoja) and (hoja[1:] in self.NoTerminales):
-                    contadorReglasEncontradas = contadorReglasEncontradas + 1
-                    if (contadorReglasEncontradas == reglasAplicadas):
+                    contadorNoTerminalesEncontrados = contadorNoTerminalesEncontrados + 1
+                    if (contadorNoTerminalesEncontrados == reglasEjecutadas):
                         wantedRuleFlag = not wantedRuleFlag
-                    if (wantedRuleFlag) and (nivel <= reglasAplicadas):
-                        iteracionArbol = iteracionArbol + ' ' + hoja[1:]
-                elif (nivel < (reglasAplicadas)):
-                    if (")" in hoja):
-                        iteracionArbol = iteracionArbol + ' ' + hoja[0:-1]
-                    else:
+                    if (wantedRuleFlag):
+                        if (nivel <= reglasEjecutadas):
+                            iteracionArbol = iteracionArbol + ' ' + hoja[1:]
+                        
+                elif (nivel < (reglasEjecutadas)):
+                    if (contadorNoTerminalesEncontrados < reglasEjecutadas) and (hoja != ")"):
                         iteracionArbol = iteracionArbol + ' ' + hoja
                 
-                print("nivel:", nivel, "        reglasAplicadas:", reglasAplicadas, "          hoja:", hoja,  "           iteracionArbol:", iteracionArbol)
+                #print("nivel:", nivel, "        reglasAplicadas:", reglasEjecutadas, "          hoja:", hoja,  "           iteracionArbol:", iteracionArbol)
             
             evolucionArbol.append(iteracionArbol[1:])
 
-        print(evolucionArbol)
+        #print(evolucionArbol)
+
+        return reglasAplicadas
                     
 
     def run(self, entrada):
@@ -112,6 +114,7 @@ class Sintaxis():
         tokens = []
         parse = []
         errores = []
+        arboles = []
 
         for linea in entrada:
             simbolos = linea["Simbolos"]
@@ -123,9 +126,11 @@ class Sintaxis():
                 diccionarioError = {"Numero de Linea" : str(linea["Numero de Linea"]), "Linea" : str(linea["Linea"]), "Error" : str(arbolSintactico["Data"])}
                 errores.append(str(diccionarioError))
             else:
-                self.adaptTreeStyle(self.splitTree(arbolSintactico))
-                parse.append(arbolSintactico["Data"])
+                arbol = arbolSintactico["Data"]
+                arboles.append(arbol)
+                reglasAplicadas = self.adaptTreeStyle(self.splitTree(arbol))
+                parse.append(reglasAplicadas)
 
-        result = {"Tokens" : str(tokens) , "Parse" :  str(parse), "Error" : str(errores)}
+        result = {"Tokens" : str(tokens) , "Parse" :  str(parse), "Error" : str(errores), "arbol" : arboles}
 
         return result
