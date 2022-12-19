@@ -26,14 +26,29 @@ class HomeController(Controller):
     
     def analisisLexico(self, entrada):
         salida = Lexico().run(entrada)
-        FileAccess().CreateNewFile("Fichero de Lexico", salida)
+        FileAccess().CreateNewFile("Fichero de Lexico", str(salida).replace("{", "{ \n"))
         return salida
 
     def analisisSintaxis(self, entrada):
+        
         salida = Sintaxis().run(entrada)
-        FileAccess().CreateNewFile("Fichero de Tokens", salida["Tokens"])
-        FileAccess().CreateNewFile("Fichero de Parse", salida["Parse"])
-        FileAccess().CreateNewFile("Fichero de Errores", salida["Error"])
+        
+        FileAccess().CreateNewFile("Fichero de Tokens", salida["Tokens"].replace("},", "}, \n"))
+        FileAccess().CreateNewFile("Fichero de Parse", salida["Parse"].replace("},", "}, \n"))
+        FileAccess().CreateNewFile("Fichero de Errores", salida["Error"].replace("},", "}, \n"))
+        
+        simbolos = FileAccess().ReservedWordsList("all attributes")
+        lexemas = FileAccess().ReservedWordsList("lexema")
+        nuevosLexemas = []
+        
+        for linea in entrada:
+            for simbolo in linea["Simbolos"]:
+                if (simbolo["lexema"] not in lexemas) and (simbolo["lexema"] not in nuevosLexemas):
+                    simbolos.append(simbolo)
+                    nuevosLexemas.append(simbolo["lexema"])
+
+        FileAccess().CreateNewFile("Fichero de Tabla de Símbolos", str(simbolos).replace("},", "}, \n"))
+
         return salida["Parse"]
     
     """

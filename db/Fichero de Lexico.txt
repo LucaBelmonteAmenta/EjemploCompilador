@@ -1,1 +1,15 @@
-[{'Numero de Linea': 0, 'Linea': 'x = x + x;', 'Simbolos': [{'token': 'id', 'lexema': 'x', 'palabra reservada': False}, {'token': '=', 'lexema': '=', 'palabra reservada': True}, {'token': 'id', 'lexema': 'x', 'palabra reservada': False}, {'token': '+', 'lexema': '+', 'palabra reservada': True}, {'token': 'id', 'lexema': 'x', 'palabra reservada': False}, {'token': ';', 'lexema': ';', 'palabra reservada': True}]}, {'Numero de Linea': 1, 'Linea': '', 'Simbolos': []}]
+[{ 
+'Numero de Linea': 0, 'Linea': 'int x;', 'Simbolos': [{ 
+'token': 'int', 'lexema': 'int', 'palabra reservada': True}, { 
+'token': 'id', 'lexema': 'x', 'palabra reservada': False}, { 
+'token': ';', 'lexema': ';', 'palabra reservada': True}]}, { 
+'Numero de Linea': 1, 'Linea': 'si', 'Simbolos': [{ 
+'token': 'si', 'lexema': 'si', 'palabra reservada': True}]}, { 
+'Numero de Linea': 2, 'Linea': 'x = x - a;', 'Simbolos': [{ 
+'token': 'id', 'lexema': 'x', 'palabra reservada': False}, { 
+'token': '=', 'lexema': '=', 'palabra reservada': True}, { 
+'token': 'id', 'lexema': 'x', 'palabra reservada': False}, { 
+'token': '-', 'lexema': '-', 'palabra reservada': True}, { 
+'token': 'id', 'lexema': 'a', 'palabra reservada': False}, { 
+'token': ';', 'lexema': ';', 'palabra reservada': True}]}, { 
+'Numero de Linea': 3, 'Linea': '', 'Simbolos': []}]
